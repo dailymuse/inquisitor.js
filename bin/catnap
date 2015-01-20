@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+
+// Load testing tool for catnap tests
+// Provides a similar interface to `nodeunit`, with a subset of functionality
+
+var path = require("path");
+var catnap = require("../lib");
+var nodeunit = require("nodeunit");
+var fs = require("fs");
+
+var parser = require("nomnom")
+    .script("catnap")
+    .option("filter", {
+        abbr: "f",
+        metavar: "namespace",
+        help: "specify a test (e.g. `ApiTestCase`) or testcase (e.g. `ApiTestCase.getItem`) to run",
+    });
+
+parser
+    .command("test")
+    .help("Runs the test suite")
+    .callback(catnap.cli.testrunner);
+
+parser
+    .command("load")
+    .help("Runs the test suite as a load test")
+    .option("count", {
+        abbr: "n",
+        default: 10,
+        metavar: "count",
+        help: "How many clients to run concurrently"
+    })
+    .option("runs", {
+        abbr: "r",
+        default: 10,
+        metavar: "runs",
+        help: "How many test runs each client should execute"
+    })
+    .callback(catnap.cli.loadrunner);
+
+parser.parse();

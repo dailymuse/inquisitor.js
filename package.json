@@ -1,0 +1,12 @@
+{
+  "name": "catnap",
+  "description": "Facilitates integration testing of websites and HTTP-based APIs",
+  "author": "The Muse",
+  "main": "lib/index.js",
+  "dependencies": {
+    "coolors": "0.0.2",
+    "nomnom": "^1.8.1",
+    "q": "^1.1.2",
+    "request": "^2.51.0"
+  }
+}

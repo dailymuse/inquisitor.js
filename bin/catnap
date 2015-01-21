@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-// Load testing tool for catnap tests
-// Provides a similar interface to `nodeunit`, with a subset of functionality
+// The CLI interface for catnap
 
 var path = require("path");
 var catnap = require("../lib");

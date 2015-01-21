@@ -1,8 +1,8 @@
-var catnap = require("./lib");
-var m = catnap.middleware;
+var inquisitor = require("./lib");
+var m = inquisitor.middleware;
 
 // Tests that a simple, JSON-based API returns the proper results
-var test = new catnap.Test("JsonTest");
+var test = new inquisitor.Test("JsonTest");
 
 // Makes the request to the JSON API
 function sendEcho() {
@@ -19,6 +19,6 @@ function receiveEcho() {
     this.next();
 }
 
-test.testcase(new catnap.TestCase("echo", m.request, sendEcho, m.expectJson, receiveEcho));
+test.testcase(new inquisitor.TestCase("echo", m.request, sendEcho, m.expectJson, receiveEcho));
 
 module.exports = test;

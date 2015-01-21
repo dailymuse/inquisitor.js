@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-// The CLI interface for catnap
+// The CLI interface for inquisitor
 
 var path = require("path");
-var catnap = require("../lib");
+var inquisitor = require("../lib");
 var nodeunit = require("nodeunit");
 var fs = require("fs");
 
 var parser = require("nomnom")
-    .script("catnap")
+    .script("inquisitor")
     .option("filter", {
         abbr: "f",
         metavar: "namespace",
@@ -18,7 +18,7 @@ var parser = require("nomnom")
 parser
     .command("test")
     .help("Runs the test suite")
-    .callback(catnap.cli.testrunner);
+    .callback(inquisitor.cli.testrunner);
 
 parser
     .command("load")
@@ -35,6 +35,6 @@ parser
         metavar: "runs",
         help: "How many test runs each client should execute"
     })
-    .callback(catnap.cli.loadrunner);
+    .callback(inquisitor.cli.loadrunner);
 
 parser.parse();

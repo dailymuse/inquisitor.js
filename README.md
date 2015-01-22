@@ -8,21 +8,21 @@ purposes.
 Here's an example test script that runs against a JSON-based API:
 
 ```javascript
-    // Tests that a simple, JSON-based API returns the proper results
-    var inq = require("inquisitor.js");
-    var test = new inq.Test("JsonTest");
+// Tests that a simple, JSON-based API returns the proper results
+var inq = require("inquisitor.js");
+var test = new inq.Test("JsonTest");
 
-    test.testcase(inq.testcase("echo",
-        inq.makeRequest("http://echo.jsontest.com/key/value/one/two"),
-        inq.expectJson,
-        inq.matchCode(200),
-        inq.matchJson({
-            one: "two",
-            key: "value"
-        })
-    ));
+test.testcase(inq.testcase("echo",
+    inq.makeRequest("http://echo.jsontest.com/key/value/one/two"),
+    inq.expectJson,
+    inq.matchCode(200),
+    inq.matchJson({
+        one: "two",
+        key: "value"
+    })
+));
 
-    module.exports = test;
+module.exports = test;
 ```
 
 If the file is called json_api.js, here's how to run a test:
@@ -81,11 +81,11 @@ methods/properties that middleware further in the chain can use.
 Here's an example middleware that checks the response code and body:
 
 ```javascript
-    function() {
-        this.equal(this.response.statusCode, 200);
-        this.equal(this.responseBody, "Hello, world!");
-        this.next();
-    }
+function() {
+    this.equal(this.response.statusCode, 200);
+    this.equal(this.responseBody, "Hello, world!");
+    this.next();
+}
 ```
 
 All methods in [assert](http://nodejs.org/api/assert.html) are available on

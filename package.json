@@ -1,6 +1,6 @@
 {
   "name": "inquisitor.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Facilitates integration testing of websites and HTTP-based APIs",
   "author": "The Muse",
   "main": "lib/index.js",

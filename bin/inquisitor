@@ -4,7 +4,6 @@
 
 var path = require("path");
 var inquisitor = require("../lib");
-var nodeunit = require("nodeunit");
 var fs = require("fs");
 
 var parser = require("nomnom")

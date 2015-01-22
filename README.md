@@ -1,4 +1,4 @@
-# Inquisitor
+# Inquisitor ![npm package](https://nodei.co/npm/inquisitor.js.png?mini=true)
 
 Inquisitor is a tool that allows you to define assertion-based tests against
 your HTTP API. These tests can then be run as a single pass to facilitate

@@ -9,7 +9,7 @@ Here's an example test script that runs against a JSON-based API:
 
 ```javascript
     // Tests that a simple, JSON-based API returns the proper results
-    var inq = require("inquisitor");
+    var inq = require("inquisitor.js");
     var test = new inq.Test("JsonTest");
 
     test.testcase(inq.testcase("echo",

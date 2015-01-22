@@ -5,11 +5,10 @@ your HTTP API. These tests can then be run as a single pass to facilitate
 integration testing, or they can be executed in parallel for load testing
 purposes.
 
-Here's an example that test script that runs against a JSON-based API:
+Here's an example test script that runs against a JSON-based API:
 
 ```javascript
     // Tests that a simple, JSON-based API returns the proper results
-
     var inq = require("inquisitor");
     var test = new inq.Test("JsonTest");
 
@@ -70,8 +69,8 @@ cover an aspect of your API - e.g. login.
 
 Testcases have a name and one or more middleware functions to call. They
 should cover an individual aspect of whatever your test covers - e.g. if your
-test is covering login, one testcase may check what happens for a valid login,
-whereas another might check the results of a bad username.
+test is covering login, one testcase may check what happens for a valid login;
+another might check the results of a bad username.
 
 ## Middleware
 
@@ -95,22 +94,22 @@ execute the next piece of middleware.
 
 There's a few middlewares built into inquisitor:
 
-    * `inquisitor.requestor` - Will add a method `this.request` that makes an
-      HTTP request, and binds `responseError`, `response`, and `responseBody`
-      to `this` when a response comes back. This uses the
-      [request](https://github.com/request/request) package in the background.
-      Testcases come with this middleware included by default, unless you
-      directly instantiate the `inquisitor.TestCase` class.
-    * `inquisitor.makeRequest(uri, options)` - Returns a middleware that will
-      make a call to the given uri with the given request options. Use this
-      if the request you're making is fixed.
-    * `inquisitor.expectJson` - Ensures that the response is valid JSON.
-    * `inquisitor.matchCode(code)` - Returns a middleware that ensures the
-      response code matches the given value.
-    * `inquisitor.matchJson(json)` - Returns a middleware that ensures the
-      response JSON body matches the given value. This should be added after
-      `inquisitor.expectJson`, and used when the expected response JSON is
-      fixed.
+* `inquisitor.requestor` - Will add a method `this.request` that makes an
+  HTTP request, and binds `responseError`, `response`, and `responseBody`
+  to `this` when a response comes back. This uses the
+  [request](https://github.com/request/request) package in the background.
+  Testcases come with this middleware included by default, unless you
+  directly instantiate the `inquisitor.TestCase` class.
+* `inquisitor.makeRequest(uri, options)` - Returns a middleware that will
+  make a call to the given uri with the given request options. Use this
+  if the request you're making is fixed.
+* `inquisitor.expectJson` - Ensures that the response is valid JSON.
+* `inquisitor.matchCode(code)` - Returns a middleware that ensures the
+  response code matches the given value.
+* `inquisitor.matchJson(json)` - Returns a middleware that ensures the
+  response JSON body matches the given value. This should be added after
+  `inquisitor.expectJson`, and used when the expected response JSON is
+  fixed.
 
 This setup is inspired by express, and allows for seamless composability.
 

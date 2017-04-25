@@ -1,8 +1,11 @@
 {
   "name": "inquisitor.js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Facilitates integration testing of websites and HTTP-based APIs",
   "author": "The Muse",
+  "bin": {
+    "inquisitor": "bin/inquisitor"
+  },
   "main": "lib/index.js",
   "dependencies": {
     "coolors": "0.0.2",
